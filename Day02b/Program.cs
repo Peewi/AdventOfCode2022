@@ -36,13 +36,25 @@
 				switch (line[2])
 				{
 					case 'X':
-						me = RPS.Rock;
+						me = opp switch
+						{
+							RPS.Rock => RPS.Scissors,
+							RPS.Paper => RPS.Rock,
+							RPS.Scissors => RPS.Paper,
+							_ => throw new Exception(),
+						};
 						break;
 					case 'Y':
-						me = RPS.Paper;
+						me = opp;
 						break;
 					case 'Z':
-						me = RPS.Scissors;
+						me = opp switch
+						{
+							RPS.Rock => RPS.Paper,
+							RPS.Paper => RPS.Scissors,
+							RPS.Scissors => RPS.Rock,
+							_ => throw new Exception(),
+						};
 						break;
 					default:
 						throw new Exception();
