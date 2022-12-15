@@ -43,7 +43,7 @@ namespace Day15a
 			Console.WriteLine($"{noBeacon.Count} positions with no beacon in row {IMPORTANTROW}");
 			Console.WriteLine($"~Part 2~");
 
-			const int TUNINGXMULTI = 4000000;
+			const long TUNINGXMULTI = 4000000;
 			const int SEARCHMAX = 4000000;
 
 			for (int row = 0; row <= SEARCHMAX; row++)
@@ -121,9 +121,7 @@ namespace Day15a
 				{
 					Point distressPos = new Point(rangeThing[0].Item1, row);
 					Console.WriteLine($"Distress beacon found at: {distressPos}");
-					long x = distressPos.X;
-					long freq = x * TUNINGXMULTI + distressPos.Y;
-					Console.WriteLine($"Tuning frequency: {freq}");
+					Console.WriteLine($"Tuning frequency: {distressPos.X * TUNINGXMULTI + distressPos.Y}");
 				}
 				else if (rangeThing.Count > 0)
 				{
